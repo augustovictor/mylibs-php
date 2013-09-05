@@ -1,5 +1,7 @@
 <h1> Articles </h1>
 
+<?php echo $this->Html->link('Create article', array('controller' => 'articles', 'action' => 'add')); ?>
+
 <table>
 	<thead>
 		<tr>
