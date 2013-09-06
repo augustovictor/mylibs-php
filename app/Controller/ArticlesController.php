@@ -34,6 +34,31 @@
 		}
 		// End add
 
+		public function edit($id = null) {
+			if(!$id) {
+				throw new NotFoundException(__('Invalid article.'));
+			}
+
+			$article = $this->Article->findById($id);
+			if(!$article) {
+				throw new NotFoundException(__('Invalid article.'));
+			}
+
+			if($this->request->is('post') || $this->request->is('put')) {
+				$this->Article->id = $id;
+				if($this->Article->save($this->request->data)) {
+					$this->Session->setFlash(__('Your article has been updated.'));
+					return $this->redirect(array('action' => 'index'));
+				}
+			}
+
+			if(!$this->request->data) {
+				$this->request->data = $article;
+			}
+
+		}
+		// End edit
+
 
 	}
 	// End ArticlesController

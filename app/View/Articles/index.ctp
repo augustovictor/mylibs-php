@@ -7,6 +7,7 @@
 		<tr>
 			<th> Title </th>
 			<th> Content </th>
+			<th> Actions </th>
 		</tr>
 	</thead>
 
@@ -15,6 +16,7 @@
 			<tr>
 				<td> <?php echo $this->Html->link($article['Article']['title'], array('controller' => 'articles', 'action' => 'view', $article['Article']['id'])); ?> </td>
 				<td> <?php echo $article['Article']['content']; ?> </td>
+				<td> <?php echo $this->Html->link('Edit', array('action' => 'edit', $article['Article']['id'])); ?> </td>
 			</tr>
 		<?php endforeach; ?>
 		<?php unset($article); ?>
