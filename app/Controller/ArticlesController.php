@@ -59,6 +59,18 @@
 		}
 		// End edit
 
+		public function delete($id) {
+			if ($this->request->is('get')) {
+				throw new MethodNotAllowedException();
+			}
+
+			if($this->Article->delete($id)) {
+				$this->Session->setFlash(__('The article with id: %s has been deleted.', h($id)));
+				return $this->redirect(array('action' => 'index'));
+			}
+		}
+		// End delete 
+
 
 	}
 	// End ArticlesController
