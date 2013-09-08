@@ -3,6 +3,11 @@
 	class ArticlesController extends AppController {
 		public $helpers = array('Html', 'Form');
 
+		public function view_active() {
+			$this->set('title_for_layout', 'MyLibs - Library Sharing');
+		}	
+		// End view_active
+
 		public function index() {
 			$this->set('articles', $this->Article->find('all'));
 		}
