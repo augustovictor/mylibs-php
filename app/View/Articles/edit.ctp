@@ -7,6 +7,6 @@
 	echo $this->Form->input('content', array('rows' => '5'));
 	echo $this->Form->end('Save article');
 
-	echo $this->Html->link('Cancel', array('controller' => 'articles', 'action' => 'index'));
+	echo $this->Html->link('Cancel', array('action' => 'index'));
 
 ?>
